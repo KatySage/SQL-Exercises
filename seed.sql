@@ -8,5 +8,19 @@
         ('Taco Mac', 7.3, 4.5, 'American', 'TMI Wings', TRUE, '2020-08-30 19:00:00'),
         ;
 
+INSERT INTO reviewer (name, email, karma)
+    VALUES ('Katy Sage', 'katysage@gmail.com', 100),
+        ('Tyler Bedford', 'tbed@gmail.com', 89),
+        ('Claire Stanford', 'cstan@comcast.net', 93)
+    ;
+INSERT INTO review (stars, title, review, restaurant_id, reviewer_id)
+    VALUES (4.3, 'my time at Taco Mac', 'it was fine', 6, 3),
+        (1, 'disgusting!', 'I literally had a rat in my food', 4, 1),
+        (3.5, 'yummy', 'I like to eat.', 3, 2),
+        (0, 'I hate it', 'burgers are super gross', 2, 2),
+        (2, 'won''t be back', 'waitress was mean', 5, 2),
+        (3, 'slow service', 'ok food', 6, 1), 
+        (4.6, 'love their wings!', 'I always get the TMI wings', 6, 2)
+        (4.8, 'best fast food around', 'I like cows!', 1, 3);
 
     

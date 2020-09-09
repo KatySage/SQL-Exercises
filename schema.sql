@@ -10,3 +10,19 @@ CREATE TABLE restaurants (
     takeout boolean,
     last_time_eaten timestamp
 );
+CREATE TABLE reviewer (
+    id serial PRIMARY KEY,
+    name text,
+    email varchar,
+    karma integer
+); 
+CREATE TABLE review (
+    id serial PRIMARY KEY,
+    stars integer,
+    title text,
+    review text,
+    restaurant_id integer,
+    reviewer_id integer,
+    FOREIGN KEY (reviewer_id) REFERENCES reviewer (id),
+    FOREIGN KEY (restaurant_id) REFERENCES restaurants (id)
+);    
