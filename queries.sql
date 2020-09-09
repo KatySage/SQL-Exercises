@@ -1,12 +1,12 @@
-SELECT title, review FROM reviews WHERE restaurant_id = 6;
-SELECT title, review, name, stars FROM review INNER JOIN restaurants ON review.restaurant_id = restaurants.id WHERE name = 'Taco Mac';
+SELECT title, review FROM review WHERE restaurant_id = 6;
+SELECT title, review, name, review.stars FROM review INNER JOIN restaurants ON review.restaurant_id = restaurants.id WHERE name = 'Taco Mac';
 SELECT title, review, name, stars FROM review INNER JOIN reviewer ON review.reviewer_id = reviewer.id WHERE name = 'Claire Stanford';
 SELECT review, name FROM review INNER JOIN restaurants ON review.restaurant_id = restaurants.id;
 SELECT AVG(review.stars)::NUMERIC(10,2), restaurants.name FROM review INNER JOIN restaurants ON review.restaurant_id = restaurants.id GROUP BY restaurants.name;
 SELECT COUNT(review)::NUMERIC(10), restaurants.name FROM review INNER JOIN restaurants ON review.restaurant_id = restaurants.id GROUP BY restaurants.name;
 SELECT review, restaurants.name, reviewer.name FROM review INNER JOIN restaurants ON review.restaurant_id = restaurants.id INNER JOIN reviewer ON review.reviewer_id = reviewer.id;
-SELECT AVG(review.stars)::NUMERIC(10,2), reviewer.name, reviewer.id FROM review INNER JOIN reviewer ON review.reviewer_id = reviewer.id GROUP BY reviewer.id;
-SELECT MIN(review.stars)::NUMERIC(10,1), reviewer.name, reviewer.id FROM review INNER JOIN reviewer ON review.reviewer_id = reviewer.id GROUP BY reviewer.id;
+SELECT AVG(review.stars)::NUMERIC(10,2), reviewer.name FROM review INNER JOIN reviewer ON review.reviewer_id = reviewer.id GROUP BY reviewer.name;
+SELECT MIN(review.stars)::NUMERIC(10,1), reviewer.name FROM review INNER JOIN reviewer ON review.reviewer_id = reviewer.id GROUP BY reviewer.name;
 SELECT COUNT(name)::NUMERIC(10), category FROM restaurants GROUP BY category;
 SELECT COUNT(review.stars)::NUMERIC(10), restaurants.name FROM review INNER JOIN restaurants ON review.restaurant_id = restaurants.id WHERE review.stars = 5 GROUP BY restaurants.name;
 SELECT AVG(review.stars)::NUMERIC(10,2), restaurants.category FROM review INNER JOIN restaurants ON review.restaurant_id = restaurants.id GROUP BY category;
